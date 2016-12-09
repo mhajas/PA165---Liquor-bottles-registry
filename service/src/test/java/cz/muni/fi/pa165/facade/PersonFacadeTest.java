@@ -85,7 +85,7 @@ public class PersonFacadeTest extends AbstractFacadeTest {
         when(beanMappingService.mapTo(personDTO, Person.class)).thenReturn(person);
         when(personService.authenticate(person, password)).thenReturn(true);
 
-        boolean result = personFacade.authenticate(personDTO, password);
+        boolean result = personFacade.authenticate(personDTO.getPassword(), password);
 
         assertTrue(result);
         verify(personService).authenticate(person, password);
